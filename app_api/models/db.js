@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 let dbURI = 'mongodb://localhost/movieguide';
 if (process.env.NODE_ENV === 'production') {
-    dbURI = process.env.MONGODB_URI;
+    dbURI = 'mongodb://heroku_xnsjf86t:uhovl37sfo0e4n8881g5agnond@ds121321.mlab.com:21321/heroku_xnsjf86t';
 }
 mongoose.connect(dbURI, { useNewUrlParser: true });
 
