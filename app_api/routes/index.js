@@ -1,9 +1,12 @@
 const express = require('express');
+
 const router = express.Router();
 const ctrlUsers = require('../controllers/users');
 const ctrlMovies = require('../controllers/movies');
 const ctrSavedMovies = require('../controllers/savedMovies');
 const ctrlAbout = require('../controllers/about');
+const ctrlOthers = require('../../app_server/controllers/others');
+
 
 
 // users
@@ -52,6 +55,14 @@ router
     .get(ctrlAbout.AboutReadOne)
     .put(ctrlAbout.AboutUpdateOne)
     .delete(ctrlAbout.AboutDeleteOne);
+
+
+
+// router
+//     .route('/aboutTest')
+//     .get(ctrlOthers.aboutCreate);
+
+
 
 
 module.exports = router;

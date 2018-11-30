@@ -16,7 +16,7 @@ router.get('/Signup', ctrlSignUp.signup);
 router.get('/login', ctrlLogin.login);
 
 /* About page */
-router.get('/about', ctrlOthers.about);
+router.get('/about/5c014385e158e021ac506ccc', ctrlOthers.about);
 
 module.exports = router;
 
