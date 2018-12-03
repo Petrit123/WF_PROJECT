@@ -1,6 +1,6 @@
 const request = require('request');
-const mongoose = require('mongoose');
-const Aboutschema = mongoose.model('About');
+//const mongoose = require('mongoose');
+//const Aboutschema = mongoose.model('About');
 
 const apiOptions = {
     server: 'http://localhost:3000'
@@ -8,36 +8,6 @@ const apiOptions = {
 if (process.env.NODE_ENV === 'production') {
     apiOptions.server = 'https://still-castle-60772.herokuapp.com/';
 }
-
-/* GET about page */
-
-const about = function(req, res,body){
-     const path = `/api/abouts/5c014385e158e021ac506ccc` ;
-     const postData = {
-         paragraph: body.paragraph
-     };
-    const requestOptions = {
-        url : apiOptions.server + path,
-        method : 'GET',
-        json : {},
-        // qs : {
-        //     paragraph : 'Testing'
-        // }
-    };
-    console.log("Before request");
-    request(requestOptions, (err, response, body) => {
-
-            _renderAboutpage(req, res, body);
-        console.log(body.paragraph);
-           // console.log(body);
-        }
-
-    );
-};
-
-
-
-
 
 // const aboutCreate= function(req,res){
 //
@@ -68,21 +38,47 @@ const about = function(req, res,body){
 
 const _renderAboutpage = function(req, res, responseBody){
     let message = null;
-    if (!(responseBody instanceof Array)) {
+    if (!(responseBody)) {
         message = "API lookup error";
         responseBody = [];
-    } else {
-        if (!responseBody.length) {
-            message = "No places found nearby";
-        }
+    // } else {
+    //     if (!responseBody.length) {
+    //         message = "No places found nearby";
+    //     }
     }
-    //console.log(responseBody);
+    console.log(responseBody);
     res.render('index', {
         title: 'MovieGuide - a place to find great movies',
 
         abouts: responseBody,
-        message: message
+        message: message,
     });
+};
+
+/* GET about page */
+
+const about = function(req, res,body){
+    const path = `/api/abouts/5c014385e158e021ac506ccc` ;
+    const postData = {
+        paragraph: body.paragraph
+    };
+    const requestOptions = {
+        url : apiOptions.server + path,
+        method : 'GET',
+        json : {},
+        // qs : {
+        //     paragraph : 'Testing'
+        // }
+    };
+    console.log("Before request");
+    request(requestOptions, (err, response, body) => {
+
+            _renderAboutpage(req, res, body);
+            console.log(body.paragraph);
+            // console.log(body);
+        }
+
+    );
 };
 
 
