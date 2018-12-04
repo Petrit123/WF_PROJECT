@@ -1,0 +1,37 @@
+
+
+h1,h2  {
+    font-family: 'Lobster', cursive;
+    //text-align: center;
+}
+
+.movieGuide {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.navbar {
+    background-color: black;
+    border-color: #911821;
+}
+
+.navbar-brand {
+    font-family: 'Lobster', cursive;
+    color:white;
+    margin-left: -5%;
+    margin-right: 1.5%;
+}
+
+
+legend {
+    font-family: 'Lobster', cursive;
+}
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: "Cabin", Arial, sans-serif;
+    color: #ffffff;
+    background-color: black;
+}
