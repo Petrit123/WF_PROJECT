@@ -1,11 +1,20 @@
 const express = require('express');
 
 const router = express.Router();
+
+const jwt = require('express-jwt');
+const auth = jwt({
+secret: process.env.JWT_SECRET,
+userProperty: 'payload'
+});
+
+
 const ctrlUsers = require('../controllers/users');
 const ctrlMovies = require('../controllers/movies');
 const ctrSavedMovies = require('../controllers/savedMovies');
 const ctrlAbout = require('../controllers/about');
 const ctrlOthers = require('../../app_server/controllers/others');
+const ctrlAuth = require('../controllers/authentication');
 
 
 
@@ -62,7 +71,8 @@ router
 //     .route('/aboutTest')
 //     .get(ctrlOthers.aboutCreate);
 
-
+router.post('/register', ctrlAuth.register);
+router.post('/login', ctrlAuth.login);
 
 
 module.exports = router;
